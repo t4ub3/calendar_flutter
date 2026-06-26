@@ -11,24 +11,31 @@ part of 'historic_date.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
+HistoricDateModel _$HistoricDateModelFromJson(
+  Map<String, dynamic> json
+) {
+    return _HistoricDate.fromJson(
+      json
+    );
+}
 
 /// @nodoc
-mixin _$HistoricDate {
+mixin _$HistoricDateModel {
 
  String get date; String get url;
-/// Create a copy of HistoricDate
+/// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$HistoricDateCopyWith<HistoricDate> get copyWith => _$HistoricDateCopyWithImpl<HistoricDate>(this as HistoricDate, _$identity);
+$HistoricDateModelCopyWith<HistoricDateModel> get copyWith => _$HistoricDateModelCopyWithImpl<HistoricDateModel>(this as HistoricDateModel, _$identity);
 
-  /// Serializes this HistoricDate to a JSON map.
+  /// Serializes this HistoricDateModel to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricDate&&(identical(other.date, date) || other.date == date)&&(identical(other.url, url) || other.url == url));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricDateModel&&(identical(other.date, date) || other.date == date)&&(identical(other.url, url) || other.url == url));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +44,15 @@ int get hashCode => Object.hash(runtimeType,date,url);
 
 @override
 String toString() {
-  return 'HistoricDate(date: $date, url: $url)';
+  return 'HistoricDateModel(date: $date, url: $url)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $HistoricDateCopyWith<$Res>  {
-  factory $HistoricDateCopyWith(HistoricDate value, $Res Function(HistoricDate) _then) = _$HistoricDateCopyWithImpl;
+abstract mixin class $HistoricDateModelCopyWith<$Res>  {
+  factory $HistoricDateModelCopyWith(HistoricDateModel value, $Res Function(HistoricDateModel) _then) = _$HistoricDateModelCopyWithImpl;
 @useResult
 $Res call({
  String date, String url
@@ -56,14 +63,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$HistoricDateCopyWithImpl<$Res>
-    implements $HistoricDateCopyWith<$Res> {
-  _$HistoricDateCopyWithImpl(this._self, this._then);
+class _$HistoricDateModelCopyWithImpl<$Res>
+    implements $HistoricDateModelCopyWith<$Res> {
+  _$HistoricDateModelCopyWithImpl(this._self, this._then);
 
-  final HistoricDate _self;
-  final $Res Function(HistoricDate) _then;
+  final HistoricDateModel _self;
+  final $Res Function(HistoricDateModel) _then;
 
-/// Create a copy of HistoricDate
+/// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? url = null,}) {
   return _then(_self.copyWith(
@@ -76,8 +83,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [HistoricDate].
-extension HistoricDatePatterns on HistoricDate {
+/// Adds pattern-matching-related methods to [HistoricDateModel].
+extension HistoricDateModelPatterns on HistoricDateModel {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -209,14 +216,14 @@ return $default(_that.date,_that.url);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _HistoricDate implements HistoricDate {
+class _HistoricDate implements HistoricDateModel {
   const _HistoricDate({required this.date, required this.url});
   factory _HistoricDate.fromJson(Map<String, dynamic> json) => _$HistoricDateFromJson(json);
 
 @override final  String date;
 @override final  String url;
 
-/// Create a copy of HistoricDate
+/// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
@@ -238,14 +245,14 @@ int get hashCode => Object.hash(runtimeType,date,url);
 
 @override
 String toString() {
-  return 'HistoricDate(date: $date, url: $url)';
+  return 'HistoricDateModel(date: $date, url: $url)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$HistoricDateCopyWith<$Res> implements $HistoricDateCopyWith<$Res> {
+abstract mixin class _$HistoricDateCopyWith<$Res> implements $HistoricDateModelCopyWith<$Res> {
   factory _$HistoricDateCopyWith(_HistoricDate value, $Res Function(_HistoricDate) _then) = __$HistoricDateCopyWithImpl;
 @override @useResult
 $Res call({
@@ -264,7 +271,7 @@ class __$HistoricDateCopyWithImpl<$Res>
   final _HistoricDate _self;
   final $Res Function(_HistoricDate) _then;
 
-/// Create a copy of HistoricDate
+/// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? url = null,}) {
   return _then(_HistoricDate(

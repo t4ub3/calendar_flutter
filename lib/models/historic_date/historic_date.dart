@@ -4,14 +4,14 @@ part "historic_date.freezed.dart";
 part "historic_date.g.dart";
 
 @Freezed()
-abstract class HistoricDate with _$HistoricDate {
+abstract class HistoricDateModel with _$HistoricDateModel {
   //HistoricData data;
 
-  const factory HistoricDate({
+  const factory HistoricDateModel({
     required String date,
     required String url,
   }) = _HistoricDate;
 
-  factory HistoricDate.fromJson(Map<String, dynamic> json) =>
+  factory HistoricDateModel.fromJson(Map<String, dynamic> json) =>
       _$HistoricDateFromJson(json);
 }

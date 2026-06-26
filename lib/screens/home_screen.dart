@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    Future<HistoricDate> historicData = fetchHistoricData();
+    Future<HistoricDateModel> historicData = fetchHistoricData();
 
     final DataCard eventsCard = DataCard("Events");
     final DataCard birthsCard = DataCard("Births");
@@ -38,7 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(child: Placeholder()),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Placeholder(),
+              ),
+            ),
             Expanded(
               child: CardScrollView([eventsCard, birthsCard, deathsCard]),
             ),

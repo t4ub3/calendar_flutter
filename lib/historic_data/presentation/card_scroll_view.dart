@@ -7,10 +7,13 @@ class CardScrollView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselView(
-      itemExtent: 250,
-      shrinkExtent: 250,
-      children: cards,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CarouselView(
+        itemExtent: 250,
+        shrinkExtent: 250,
+        children: cards,
+      ),
     );
   }
 }

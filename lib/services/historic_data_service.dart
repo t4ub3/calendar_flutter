@@ -5,11 +5,11 @@ import 'package:http/http.dart' as http;
 
 const API_BASE_URL = "https://history.muffinlabs.com/date";
 
-Future<HistoricDate> fetchHistoricData() async {
+Future<HistoricDateModel> fetchHistoricData() async {
   final response = await http.get(Uri.parse(_buildUrl(null)));
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
-    return HistoricDate.fromJson(data);
+    return HistoricDateModel.fromJson(data);
   } else {
     throw Exception('Failed to load historic data');
   }

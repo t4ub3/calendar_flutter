@@ -10,7 +10,7 @@ class DataCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: ContinuousRectangleBorder(
-        borderRadius: BorderRadiusGeometry.all(Radius.circular(4)),
+        borderRadius: BorderRadiusGeometry.all(Radius.circular(20)),
       ),
       child: Column(
         children: [
@@ -27,7 +27,7 @@ class DataCard extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
+              child: ListView(
                 children: [
                   for (var e in events)
                     ListTile(

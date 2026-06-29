@@ -52,9 +52,9 @@ class CardScrollView extends ConsumerWidget {
       padding: const EdgeInsets.all(8.0),
       child: historicDate.when(
         data: (historicDate) {
-          return CarouselView(
-            itemExtent: 250,
-            shrinkExtent: 250,
+          return ListView(
+            scrollDirection: Axis.horizontal,
+            itemExtent: 300,
             children: _buildCards(historicDate),
           );
         },

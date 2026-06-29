@@ -1,3 +1,4 @@
+import 'package:calendar_flutter/calendar_sheet/presentation/calendar_sheet_view.dart';
 import 'package:calendar_flutter/historic_data/presentation/card_scroll_view.dart';
 import 'package:calendar_flutter/historic_data/presentation/data_card.dart';
 import 'package:calendar_flutter/models/historic_date/historic_date_model.dart';
@@ -33,10 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Placeholder(),
-              ),
+              child: CalendarSheetView(),
             ),
             Expanded(
               child: CardScrollView(),

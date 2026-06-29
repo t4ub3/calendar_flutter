@@ -13,7 +13,7 @@ part of 'historic_date_provider.dart';
 final historicDateProvider = HistoricDateProvider._();
 
 final class HistoricDateProvider
-    extends $AsyncNotifierProvider<HistoricDate, HistoricDate> {
+    extends $AsyncNotifierProvider<HistoricDate, HistoricDateModel> {
   HistoricDateProvider._()
     : super(
         from: null,
@@ -33,19 +33,20 @@ final class HistoricDateProvider
   HistoricDate create() => HistoricDate();
 }
 
-String _$historicDateHash() => r'3422050b2f51e4cf2b51d882fcc9f4a9d98c7d35';
+String _$historicDateHash() => r'454672d91bcfaa421d49faf8c4cf4f6123b4877b';
 
-abstract class _$HistoricDate extends $AsyncNotifier<HistoricDate> {
-  FutureOr<HistoricDate> build();
+abstract class _$HistoricDate extends $AsyncNotifier<HistoricDateModel> {
+  FutureOr<HistoricDateModel> build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final ref = this.ref as $Ref<AsyncValue<HistoricDate>, HistoricDate>;
+    final ref =
+        this.ref as $Ref<AsyncValue<HistoricDateModel>, HistoricDateModel>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<HistoricDate>, HistoricDate>,
-              AsyncValue<HistoricDate>,
+              AnyNotifier<AsyncValue<HistoricDateModel>, HistoricDateModel>,
+              AsyncValue<HistoricDateModel>,
               Object?,
               Object?
             >;

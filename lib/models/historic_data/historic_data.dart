@@ -9,9 +9,9 @@ abstract class HistoricData with _$HistoricData {
   //HistoricData data;
 
   const factory HistoricData({
-    required List<HistoricEvent> events,
-    required List<HistoricEvent> births,
-    required List<HistoricEvent> deaths,
+    required List<HistoricEvent> Events,
+    required List<HistoricEvent> Births,
+    required List<HistoricEvent> Deaths,
   }) = _HistoricData;
 
   factory HistoricData.fromJson(Map<String, dynamic> json) =>

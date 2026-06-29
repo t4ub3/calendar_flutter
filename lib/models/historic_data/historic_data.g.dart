@@ -8,20 +8,20 @@ part of 'historic_data.dart';
 
 _HistoricData _$HistoricDataFromJson(Map<String, dynamic> json) =>
     _HistoricData(
-      events: (json['events'] as List<dynamic>)
+      Events: (json['Events'] as List<dynamic>)
           .map((e) => HistoricEvent.fromJson(e as Map<String, dynamic>))
           .toList(),
-      births: (json['births'] as List<dynamic>)
+      Births: (json['Births'] as List<dynamic>)
           .map((e) => HistoricEvent.fromJson(e as Map<String, dynamic>))
           .toList(),
-      deaths: (json['deaths'] as List<dynamic>)
+      Deaths: (json['Deaths'] as List<dynamic>)
           .map((e) => HistoricEvent.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$HistoricDataToJson(_HistoricData instance) =>
     <String, dynamic>{
-      'events': instance.events,
-      'births': instance.births,
-      'deaths': instance.deaths,
+      'Events': instance.Events,
+      'Births': instance.Births,
+      'Deaths': instance.Deaths,
     };

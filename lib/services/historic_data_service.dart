@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:calendar_flutter/models/historic_date/historic_date.dart';
+import 'package:calendar_flutter/models/historic_date/historic_date_model.dart';
 import 'package:http/http.dart' as http;
 
 const API_BASE_URL = "https://history.muffinlabs.com/date";

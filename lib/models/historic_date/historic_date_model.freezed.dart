@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'historic_date.dart';
+part of 'historic_date_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,7 +22,7 @@ HistoricDateModel _$HistoricDateModelFromJson(
 /// @nodoc
 mixin _$HistoricDateModel {
 
- String get date; String get url;
+ String get date; String get url; HistoricData get data;
 /// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -35,16 +35,16 @@ $HistoricDateModelCopyWith<HistoricDateModel> get copyWith => _$HistoricDateMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricDateModel&&(identical(other.date, date) || other.date == date)&&(identical(other.url, url) || other.url == url));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricDateModel&&(identical(other.date, date) || other.date == date)&&(identical(other.url, url) || other.url == url)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,url);
+int get hashCode => Object.hash(runtimeType,date,url,data);
 
 @override
 String toString() {
-  return 'HistoricDateModel(date: $date, url: $url)';
+  return 'HistoricDateModel(date: $date, url: $url, data: $data)';
 }
 
 
@@ -55,11 +55,11 @@ abstract mixin class $HistoricDateModelCopyWith<$Res>  {
   factory $HistoricDateModelCopyWith(HistoricDateModel value, $Res Function(HistoricDateModel) _then) = _$HistoricDateModelCopyWithImpl;
 @useResult
 $Res call({
- String date, String url
+ String date, String url, HistoricData data
 });
 
 
-
+$HistoricDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -72,14 +72,24 @@ class _$HistoricDateModelCopyWithImpl<$Res>
 
 /// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? url = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? url = null,Object? data = null,}) {
   return _then(_self.copyWith(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as String,
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as HistoricData,
   ));
 }
-
+/// Create a copy of HistoricDateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$HistoricDataCopyWith<$Res> get data {
+  
+  return $HistoricDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 
@@ -161,10 +171,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  String url)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  String url,  HistoricData data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HistoricDate() when $default != null:
-return $default(_that.date,_that.url);case _:
+return $default(_that.date,_that.url,_that.data);case _:
   return orElse();
 
 }
@@ -182,10 +192,10 @@ return $default(_that.date,_that.url);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  String url)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  String url,  HistoricData data)  $default,) {final _that = this;
 switch (_that) {
 case _HistoricDate():
-return $default(_that.date,_that.url);case _:
+return $default(_that.date,_that.url,_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +212,10 @@ return $default(_that.date,_that.url);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  String url)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  String url,  HistoricData data)?  $default,) {final _that = this;
 switch (_that) {
 case _HistoricDate() when $default != null:
-return $default(_that.date,_that.url);case _:
+return $default(_that.date,_that.url,_that.data);case _:
   return null;
 
 }
@@ -217,11 +227,12 @@ return $default(_that.date,_that.url);case _:
 @JsonSerializable()
 
 class _HistoricDate implements HistoricDateModel {
-  const _HistoricDate({required this.date, required this.url});
+  const _HistoricDate({required this.date, required this.url, required this.data});
   factory _HistoricDate.fromJson(Map<String, dynamic> json) => _$HistoricDateFromJson(json);
 
 @override final  String date;
 @override final  String url;
+@override final  HistoricData data;
 
 /// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
@@ -236,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricDate&&(identical(other.date, date) || other.date == date)&&(identical(other.url, url) || other.url == url));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricDate&&(identical(other.date, date) || other.date == date)&&(identical(other.url, url) || other.url == url)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,url);
+int get hashCode => Object.hash(runtimeType,date,url,data);
 
 @override
 String toString() {
-  return 'HistoricDateModel(date: $date, url: $url)';
+  return 'HistoricDateModel(date: $date, url: $url, data: $data)';
 }
 
 
@@ -256,11 +267,11 @@ abstract mixin class _$HistoricDateCopyWith<$Res> implements $HistoricDateModelC
   factory _$HistoricDateCopyWith(_HistoricDate value, $Res Function(_HistoricDate) _then) = __$HistoricDateCopyWithImpl;
 @override @useResult
 $Res call({
- String date, String url
+ String date, String url, HistoricData data
 });
 
 
-
+@override $HistoricDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -273,15 +284,25 @@ class __$HistoricDateCopyWithImpl<$Res>
 
 /// Create a copy of HistoricDateModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? url = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? url = null,Object? data = null,}) {
   return _then(_HistoricDate(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as String,
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as HistoricData,
   ));
 }
 
-
+/// Create a copy of HistoricDateModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$HistoricDataCopyWith<$Res> get data {
+  
+  return $HistoricDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 // dart format on

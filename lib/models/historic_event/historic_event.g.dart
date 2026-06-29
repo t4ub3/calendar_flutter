@@ -12,7 +12,9 @@ _HistoricEvent _$HistoricEventFromJson(Map<String, dynamic> json) =>
       text: json['text'] as String,
       html: json['html'] as String,
       no_year_html: json['no_year_html'] as String,
-      links: json['links'],
+      links: (json['links'] as List<dynamic>)
+          .map((e) => Link.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$HistoricEventToJson(_HistoricEvent instance) =>

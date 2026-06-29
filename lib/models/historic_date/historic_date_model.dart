@@ -1,7 +1,8 @@
+import 'package:calendar_flutter/models/historic_data/historic_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part "historic_date.freezed.dart";
-part "historic_date.g.dart";
+part "historic_date_model.freezed.dart";
+part "historic_date_model.g.dart";
 
 @Freezed()
 abstract class HistoricDateModel with _$HistoricDateModel {
@@ -10,6 +11,7 @@ abstract class HistoricDateModel with _$HistoricDateModel {
   const factory HistoricDateModel({
     required String date,
     required String url,
+    required HistoricData data,
   }) = _HistoricDate;
 
   factory HistoricDateModel.fromJson(Map<String, dynamic> json) =>

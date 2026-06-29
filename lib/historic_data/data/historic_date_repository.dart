@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:calendar_flutter/models/historic_date/historic_date.dart';
+import 'package:calendar_flutter/models/historic_date/historic_date_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,7 +17,7 @@ class HistoricDateRepository {
   Future<HistoricDateModel> fetchHistoricDate() async {
     final response = await http.get(Uri.parse(_buildUrl(null)));
     if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
       return HistoricDateModel.fromJson(data);
     } else {
       throw Exception('Failed to load historic data');

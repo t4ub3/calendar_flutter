@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HistoricData {
 
- List<HistoricEvent> get events; List<HistoricEvent> get births; List<HistoricEvent> get deaths;
+ List<HistoricEvent> get Events; List<HistoricEvent> get Births; List<HistoricEvent> get Deaths;
 /// Create a copy of HistoricData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $HistoricDataCopyWith<HistoricData> get copyWith => _$HistoricDataCopyWithImpl<H
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricData&&const DeepCollectionEquality().equals(other.events, events)&&const DeepCollectionEquality().equals(other.births, births)&&const DeepCollectionEquality().equals(other.deaths, deaths));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoricData&&const DeepCollectionEquality().equals(other.Events, Events)&&const DeepCollectionEquality().equals(other.Births, Births)&&const DeepCollectionEquality().equals(other.Deaths, Deaths));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(events),const DeepCollectionEquality().hash(births),const DeepCollectionEquality().hash(deaths));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(Events),const DeepCollectionEquality().hash(Births),const DeepCollectionEquality().hash(Deaths));
 
 @override
 String toString() {
-  return 'HistoricData(events: $events, births: $births, deaths: $deaths)';
+  return 'HistoricData(Events: $Events, Births: $Births, Deaths: $Deaths)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $HistoricDataCopyWith<$Res>  {
   factory $HistoricDataCopyWith(HistoricData value, $Res Function(HistoricData) _then) = _$HistoricDataCopyWithImpl;
 @useResult
 $Res call({
- List<HistoricEvent> events, List<HistoricEvent> births, List<HistoricEvent> deaths
+ List<HistoricEvent> Events, List<HistoricEvent> Births, List<HistoricEvent> Deaths
 });
 
 
@@ -65,11 +65,11 @@ class _$HistoricDataCopyWithImpl<$Res>
 
 /// Create a copy of HistoricData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? events = null,Object? births = null,Object? deaths = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? Events = null,Object? Births = null,Object? Deaths = null,}) {
   return _then(_self.copyWith(
-events: null == events ? _self.events : events // ignore: cast_nullable_to_non_nullable
-as List<HistoricEvent>,births: null == births ? _self.births : births // ignore: cast_nullable_to_non_nullable
-as List<HistoricEvent>,deaths: null == deaths ? _self.deaths : deaths // ignore: cast_nullable_to_non_nullable
+Events: null == Events ? _self.Events : Events // ignore: cast_nullable_to_non_nullable
+as List<HistoricEvent>,Births: null == Births ? _self.Births : Births // ignore: cast_nullable_to_non_nullable
+as List<HistoricEvent>,Deaths: null == Deaths ? _self.Deaths : Deaths // ignore: cast_nullable_to_non_nullable
 as List<HistoricEvent>,
   ));
 }
@@ -155,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<HistoricEvent> events,  List<HistoricEvent> births,  List<HistoricEvent> deaths)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<HistoricEvent> Events,  List<HistoricEvent> Births,  List<HistoricEvent> Deaths)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HistoricData() when $default != null:
-return $default(_that.events,_that.births,_that.deaths);case _:
+return $default(_that.Events,_that.Births,_that.Deaths);case _:
   return orElse();
 
 }
@@ -176,10 +176,10 @@ return $default(_that.events,_that.births,_that.deaths);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<HistoricEvent> events,  List<HistoricEvent> births,  List<HistoricEvent> deaths)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<HistoricEvent> Events,  List<HistoricEvent> Births,  List<HistoricEvent> Deaths)  $default,) {final _that = this;
 switch (_that) {
 case _HistoricData():
-return $default(_that.events,_that.births,_that.deaths);case _:
+return $default(_that.Events,_that.Births,_that.Deaths);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +196,10 @@ return $default(_that.events,_that.births,_that.deaths);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<HistoricEvent> events,  List<HistoricEvent> births,  List<HistoricEvent> deaths)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<HistoricEvent> Events,  List<HistoricEvent> Births,  List<HistoricEvent> Deaths)?  $default,) {final _that = this;
 switch (_that) {
 case _HistoricData() when $default != null:
-return $default(_that.events,_that.births,_that.deaths);case _:
+return $default(_that.Events,_that.Births,_that.Deaths);case _:
   return null;
 
 }
@@ -211,28 +211,28 @@ return $default(_that.events,_that.births,_that.deaths);case _:
 @JsonSerializable()
 
 class _HistoricData implements HistoricData {
-  const _HistoricData({required final  List<HistoricEvent> events, required final  List<HistoricEvent> births, required final  List<HistoricEvent> deaths}): _events = events,_births = births,_deaths = deaths;
+  const _HistoricData({required final  List<HistoricEvent> Events, required final  List<HistoricEvent> Births, required final  List<HistoricEvent> Deaths}): _Events = Events,_Births = Births,_Deaths = Deaths;
   factory _HistoricData.fromJson(Map<String, dynamic> json) => _$HistoricDataFromJson(json);
 
- final  List<HistoricEvent> _events;
-@override List<HistoricEvent> get events {
-  if (_events is EqualUnmodifiableListView) return _events;
+ final  List<HistoricEvent> _Events;
+@override List<HistoricEvent> get Events {
+  if (_Events is EqualUnmodifiableListView) return _Events;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_events);
+  return EqualUnmodifiableListView(_Events);
 }
 
- final  List<HistoricEvent> _births;
-@override List<HistoricEvent> get births {
-  if (_births is EqualUnmodifiableListView) return _births;
+ final  List<HistoricEvent> _Births;
+@override List<HistoricEvent> get Births {
+  if (_Births is EqualUnmodifiableListView) return _Births;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_births);
+  return EqualUnmodifiableListView(_Births);
 }
 
- final  List<HistoricEvent> _deaths;
-@override List<HistoricEvent> get deaths {
-  if (_deaths is EqualUnmodifiableListView) return _deaths;
+ final  List<HistoricEvent> _Deaths;
+@override List<HistoricEvent> get Deaths {
+  if (_Deaths is EqualUnmodifiableListView) return _Deaths;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_deaths);
+  return EqualUnmodifiableListView(_Deaths);
 }
 
 
@@ -249,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricData&&const DeepCollectionEquality().equals(other._events, _events)&&const DeepCollectionEquality().equals(other._births, _births)&&const DeepCollectionEquality().equals(other._deaths, _deaths));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricData&&const DeepCollectionEquality().equals(other._Events, _Events)&&const DeepCollectionEquality().equals(other._Births, _Births)&&const DeepCollectionEquality().equals(other._Deaths, _Deaths));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_events),const DeepCollectionEquality().hash(_births),const DeepCollectionEquality().hash(_deaths));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_Events),const DeepCollectionEquality().hash(_Births),const DeepCollectionEquality().hash(_Deaths));
 
 @override
 String toString() {
-  return 'HistoricData(events: $events, births: $births, deaths: $deaths)';
+  return 'HistoricData(Events: $Events, Births: $Births, Deaths: $Deaths)';
 }
 
 
@@ -269,7 +269,7 @@ abstract mixin class _$HistoricDataCopyWith<$Res> implements $HistoricDataCopyWi
   factory _$HistoricDataCopyWith(_HistoricData value, $Res Function(_HistoricData) _then) = __$HistoricDataCopyWithImpl;
 @override @useResult
 $Res call({
- List<HistoricEvent> events, List<HistoricEvent> births, List<HistoricEvent> deaths
+ List<HistoricEvent> Events, List<HistoricEvent> Births, List<HistoricEvent> Deaths
 });
 
 
@@ -286,11 +286,11 @@ class __$HistoricDataCopyWithImpl<$Res>
 
 /// Create a copy of HistoricData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? events = null,Object? births = null,Object? deaths = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? Events = null,Object? Births = null,Object? Deaths = null,}) {
   return _then(_HistoricData(
-events: null == events ? _self._events : events // ignore: cast_nullable_to_non_nullable
-as List<HistoricEvent>,births: null == births ? _self._births : births // ignore: cast_nullable_to_non_nullable
-as List<HistoricEvent>,deaths: null == deaths ? _self._deaths : deaths // ignore: cast_nullable_to_non_nullable
+Events: null == Events ? _self._Events : Events // ignore: cast_nullable_to_non_nullable
+as List<HistoricEvent>,Births: null == Births ? _self._Births : Births // ignore: cast_nullable_to_non_nullable
+as List<HistoricEvent>,Deaths: null == Deaths ? _self._Deaths : Deaths // ignore: cast_nullable_to_non_nullable
 as List<HistoricEvent>,
   ));
 }

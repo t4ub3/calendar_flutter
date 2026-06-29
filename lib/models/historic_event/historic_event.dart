@@ -1,3 +1,4 @@
+import 'package:calendar_flutter/models/link/link.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part "historic_event.freezed.dart";
@@ -10,7 +11,7 @@ abstract class HistoricEvent with _$HistoricEvent {
     required String text,
     required String html,
     required String no_year_html,
-    required dynamic links,
+    required List<Link> links,
   }) = _HistoricEvent;
 
   factory HistoricEvent.fromJson(Map<String, dynamic> json) =>

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HistoricEvent {
 
- String get year; String get text; String get html; String get no_year_html; dynamic get links;
+ String get year; String get text; String get html; String get no_year_html; List<Link> get links;
 /// Create a copy of HistoricEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $HistoricEventCopyWith<$Res>  {
   factory $HistoricEventCopyWith(HistoricEvent value, $Res Function(HistoricEvent) _then) = _$HistoricEventCopyWithImpl;
 @useResult
 $Res call({
- String year, String text, String html, String no_year_html, dynamic links
+ String year, String text, String html, String no_year_html, List<Link> links
 });
 
 
@@ -65,14 +65,14 @@ class _$HistoricEventCopyWithImpl<$Res>
 
 /// Create a copy of HistoricEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? year = null,Object? text = null,Object? html = null,Object? no_year_html = null,Object? links = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? year = null,Object? text = null,Object? html = null,Object? no_year_html = null,Object? links = null,}) {
   return _then(_self.copyWith(
 year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,html: null == html ? _self.html : html // ignore: cast_nullable_to_non_nullable
 as String,no_year_html: null == no_year_html ? _self.no_year_html : no_year_html // ignore: cast_nullable_to_non_nullable
-as String,links: freezed == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
-as dynamic,
+as String,links: null == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
+as List<Link>,
   ));
 }
 
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String year,  String text,  String html,  String no_year_html,  dynamic links)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String year,  String text,  String html,  String no_year_html,  List<Link> links)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HistoricEvent() when $default != null:
 return $default(_that.year,_that.text,_that.html,_that.no_year_html,_that.links);case _:
@@ -178,7 +178,7 @@ return $default(_that.year,_that.text,_that.html,_that.no_year_html,_that.links)
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String year,  String text,  String html,  String no_year_html,  dynamic links)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String year,  String text,  String html,  String no_year_html,  List<Link> links)  $default,) {final _that = this;
 switch (_that) {
 case _HistoricEvent():
 return $default(_that.year,_that.text,_that.html,_that.no_year_html,_that.links);case _:
@@ -198,7 +198,7 @@ return $default(_that.year,_that.text,_that.html,_that.no_year_html,_that.links)
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String year,  String text,  String html,  String no_year_html,  dynamic links)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String year,  String text,  String html,  String no_year_html,  List<Link> links)?  $default,) {final _that = this;
 switch (_that) {
 case _HistoricEvent() when $default != null:
 return $default(_that.year,_that.text,_that.html,_that.no_year_html,_that.links);case _:
@@ -213,14 +213,20 @@ return $default(_that.year,_that.text,_that.html,_that.no_year_html,_that.links)
 @JsonSerializable()
 
 class _HistoricEvent implements HistoricEvent {
-  const _HistoricEvent({required this.year, required this.text, required this.html, required this.no_year_html, required this.links});
+  const _HistoricEvent({required this.year, required this.text, required this.html, required this.no_year_html, required final  List<Link> links}): _links = links;
   factory _HistoricEvent.fromJson(Map<String, dynamic> json) => _$HistoricEventFromJson(json);
 
 @override final  String year;
 @override final  String text;
 @override final  String html;
 @override final  String no_year_html;
-@override final  dynamic links;
+ final  List<Link> _links;
+@override List<Link> get links {
+  if (_links is EqualUnmodifiableListView) return _links;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_links);
+}
+
 
 /// Create a copy of HistoricEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -235,12 +241,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricEvent&&(identical(other.year, year) || other.year == year)&&(identical(other.text, text) || other.text == text)&&(identical(other.html, html) || other.html == html)&&(identical(other.no_year_html, no_year_html) || other.no_year_html == no_year_html)&&const DeepCollectionEquality().equals(other.links, links));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoricEvent&&(identical(other.year, year) || other.year == year)&&(identical(other.text, text) || other.text == text)&&(identical(other.html, html) || other.html == html)&&(identical(other.no_year_html, no_year_html) || other.no_year_html == no_year_html)&&const DeepCollectionEquality().equals(other._links, _links));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,year,text,html,no_year_html,const DeepCollectionEquality().hash(links));
+int get hashCode => Object.hash(runtimeType,year,text,html,no_year_html,const DeepCollectionEquality().hash(_links));
 
 @override
 String toString() {
@@ -255,7 +261,7 @@ abstract mixin class _$HistoricEventCopyWith<$Res> implements $HistoricEventCopy
   factory _$HistoricEventCopyWith(_HistoricEvent value, $Res Function(_HistoricEvent) _then) = __$HistoricEventCopyWithImpl;
 @override @useResult
 $Res call({
- String year, String text, String html, String no_year_html, dynamic links
+ String year, String text, String html, String no_year_html, List<Link> links
 });
 
 
@@ -272,14 +278,14 @@ class __$HistoricEventCopyWithImpl<$Res>
 
 /// Create a copy of HistoricEvent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? year = null,Object? text = null,Object? html = null,Object? no_year_html = null,Object? links = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? year = null,Object? text = null,Object? html = null,Object? no_year_html = null,Object? links = null,}) {
   return _then(_HistoricEvent(
 year: null == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,html: null == html ? _self.html : html // ignore: cast_nullable_to_non_nullable
 as String,no_year_html: null == no_year_html ? _self.no_year_html : no_year_html // ignore: cast_nullable_to_non_nullable
-as String,links: freezed == links ? _self.links : links // ignore: cast_nullable_to_non_nullable
-as dynamic,
+as String,links: null == links ? _self._links : links // ignore: cast_nullable_to_non_nullable
+as List<Link>,
   ));
 }
 

@@ -17,7 +17,7 @@ class HistoricDateRepository {
   Future<HistoricDateModel> fetchHistoricDate() async {
     final response = await http.get(Uri.parse(_buildUrl(null)));
     if (response.statusCode == 200) {
-      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      final data = jsonDecode(response.body);
       return HistoricDateModel.fromJson(data);
     } else {
       throw Exception('Failed to load historic data');

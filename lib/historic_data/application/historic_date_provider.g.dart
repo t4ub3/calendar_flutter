@@ -33,7 +33,7 @@ final class HistoricDateProvider
   HistoricDate create() => HistoricDate();
 }
 
-String _$historicDateHash() => r'454672d91bcfaa421d49faf8c4cf4f6123b4877b';
+String _$historicDateHash() => r'70d7bc9eab1d52de18d4d2082fd458f268004084';
 
 abstract class _$HistoricDate extends $AsyncNotifier<HistoricDateModel> {
   FutureOr<HistoricDateModel> build();

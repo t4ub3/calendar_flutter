@@ -9,13 +9,13 @@ class DataCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: ContinuousRectangleBorder(
-        borderRadius: BorderRadiusGeometry.all(Radius.circular(20)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(4)),
       ),
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: Text(
               title,
               style: TextStyle(
@@ -31,7 +31,10 @@ class DataCard extends StatelessWidget {
                 children: [
                   for (var e in events)
                     ListTile(
-                      title: Text(e.year),
+                      title: Text(
+                        e.year,
+                        style: TextStyle(fontWeight: FontWeight(600)),
+                      ),
                       subtitle: Text(e.text),
                     ),
                 ],

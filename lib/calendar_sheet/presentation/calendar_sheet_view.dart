@@ -50,98 +50,107 @@ class CalendarSheetView extends ConsumerWidget {
       days.add(i);
     }
 
-    return Column(
-      children: [
-        SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ElevatedButton(
-              onPressed: () => _changeMonth(-1, ref),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          SizedBox(height: 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () => _changeMonth(-1, ref),
 
-              child: const Text('<'),
-            ),
-            Text(
-              '${months[sheetData.showMonth.month - 1]} ${sheetData.showMonth.year}',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+                child: const Text('<'),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () => _changeMonth(1, ref),
-              child: const Text('>'),
-            ),
-          ],
-        ),
-        SizedBox(height: 8),
+              Text(
+                '${months[sheetData.showMonth.month - 1]} ${sheetData.showMonth.year}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () => _changeMonth(1, ref),
+                child: const Text('>'),
+              ),
+            ],
+          ),
+          SizedBox(height: 8),
 
-        Expanded(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              const int columns = 7;
-              const int rows =
-                  6; // fixed 6 keeps the layout stable across months
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                const int columns = 7;
+                const int rows =
+                    6; // fixed 6 keeps the layout stable across months
 
-              // Largest square cell that fits both dimensions; usually height-bound.
-              final cellSize = math.min(
-                constraints.maxHeight / rows,
-                constraints.maxWidth / columns,
-              );
-              return SizedBox(
-                width: cellSize * columns,
-                height: cellSize * rows,
-                child: GridView.count(
-                  crossAxisCount: 7,
-                  children: days.map((day) {
-                    if (day == null) {
-                      return Center(child: SizedBox());
-                    }
-                    bool isToday =
-                        day == today.day &&
-                        sheetData.showMonth.month == today.month &&
-                        sheetData.showMonth.year == today.year;
+                // Largest square cell that fits both dimensions; usually height-bound.
+                final cellSize = math.min(
+                  constraints.maxHeight / rows,
+                  constraints.maxWidth / columns,
+                );
+                return SizedBox(
+                  width: cellSize * columns,
+                  height: cellSize * rows,
+                  child: GridView.count(
+                    crossAxisCount: 7,
+                    children: days.map((day) {
+                      if (day == null) {
+                        return Center(child: SizedBox());
+                      }
+                      bool isToday =
+                          day == today.day &&
+                          sheetData.showMonth.month == today.month &&
+                          sheetData.showMonth.year == today.year;
 
-                    bool isWeekend = day == 'Sa' || day == 'So';
-                    Color cellColor = Colors.black;
+                      bool isWeekend = day == 'Sa' || day == 'So';
+                      Color cellColor = Colors.black;
 
-                    if (isToday) {
-                      cellColor = Colors.green;
-                    } else if (isWeekend) {
-                      cellColor = Colors.grey;
-                    }
+                      if (isToday) {
+                        cellColor = Colors.green;
+                      } else if (isWeekend) {
+                        cellColor = Colors.grey;
+                      }
 
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Material(
-                        child: Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              border: isToday
-                                  ? Border.all(color: Colors.purple, width: 2)
-                                  : null,
-                            ),
-                            child: Text(
-                              day.toString(),
-                              style: TextStyle(
-                                color: cellColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                      return Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Material(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(4)),
+                          ),
+                          child: Center(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                border: isToday
+                                    ? Border.all(color: Colors.purple, width: 2)
+                                    : null,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  day.toString(),
+                                  style: TextStyle(
+                                    color: cellColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              );
-            },
+                      );
+                    }).toList(),
+                  ),
+                );
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

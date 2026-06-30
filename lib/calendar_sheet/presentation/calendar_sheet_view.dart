@@ -1,5 +1,6 @@
+import 'dart:math' as math;
+
 import 'package:calendar_flutter/calendar_sheet/application/calendar_sheet_provider.dart';
-import 'package:calendar_flutter/models/calendar_sheet/calendar_sheet_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,15 +12,6 @@ class CalendarSheetView extends ConsumerWidget {
     final sheetData = ref.watch(calendarSheetProvider);
 
     DateTime today = DateTime.now();
-    String title =
-        '${today.day.toString().padLeft(2, '0')}.${today.month.toString().padLeft(2, '0')}.${today.year}';
-
-    if (sheetData.selectedDate != null) {
-      title =
-          '${sheetData.selectedDate!.day.toString().padLeft(2, '0')}.'
-          '${sheetData.selectedDate!.month.toString().padLeft(2, '0')}.'
-          '${sheetData.selectedDate!.year}';
-    }
 
     final firstDay = DateTime(
       sheetData.showMonth.year,
@@ -86,50 +78,67 @@ class CalendarSheetView extends ConsumerWidget {
         SizedBox(height: 8),
 
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 7,
-            children: days.map((day) {
-              if (day == null) {
-                return Center(child: SizedBox());
-              }
-              bool isToday =
-                  day == today.day &&
-                  sheetData.showMonth.month == today.month &&
-                  sheetData.showMonth.year == today.year;
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              const int columns = 7;
+              const int rows =
+                  6; // fixed 6 keeps the layout stable across months
 
-              bool isWeekend = day == 'Sa' || day == 'So';
-              Color cellColor = Colors.black;
+              // Largest square cell that fits both dimensions; usually height-bound.
+              final cellSize = math.min(
+                constraints.maxHeight / rows,
+                constraints.maxWidth / columns,
+              );
+              return SizedBox(
+                width: cellSize * columns,
+                height: cellSize * rows,
+                child: GridView.count(
+                  crossAxisCount: 7,
+                  children: days.map((day) {
+                    if (day == null) {
+                      return Center(child: SizedBox());
+                    }
+                    bool isToday =
+                        day == today.day &&
+                        sheetData.showMonth.month == today.month &&
+                        sheetData.showMonth.year == today.year;
 
-              if (isToday) {
-                cellColor = Colors.green;
-              } else if (isWeekend) {
-                cellColor = Colors.grey;
-              }
+                    bool isWeekend = day == 'Sa' || day == 'So';
+                    Color cellColor = Colors.black;
 
-              return Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Material(
-                  child: Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        border: isToday
-                            ? Border.all(color: Colors.purple, width: 2)
-                            : null,
-                      ),
-                      child: Text(
-                        day.toString(),
-                        style: TextStyle(
-                          color: cellColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                    if (isToday) {
+                      cellColor = Colors.green;
+                    } else if (isWeekend) {
+                      cellColor = Colors.grey;
+                    }
+
+                    return Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Material(
+                        child: Center(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              border: isToday
+                                  ? Border.all(color: Colors.purple, width: 2)
+                                  : null,
+                            ),
+                            child: Text(
+                              day.toString(),
+                              style: TextStyle(
+                                color: cellColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  }).toList(),
                 ),
               );
-            }).toList(),
+            },
           ),
         ),
       ],

@@ -13,7 +13,7 @@ part of 'calendar_sheet_provider.dart';
 final calendarSheetProvider = CalendarSheetProvider._();
 
 final class CalendarSheetProvider
-    extends $AsyncNotifierProvider<CalendarSheet, CalendarSheetModel> {
+    extends $NotifierProvider<CalendarSheet, CalendarSheetModel> {
   CalendarSheetProvider._()
     : super(
         from: null,
@@ -31,22 +31,29 @@ final class CalendarSheetProvider
   @$internal
   @override
   CalendarSheet create() => CalendarSheet();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CalendarSheetModel value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<CalendarSheetModel>(value),
+    );
+  }
 }
 
-String _$calendarSheetHash() => r'94f11000d1fefb567240b7c57580663e46b26128';
+String _$calendarSheetHash() => r'17231c23e16bf9770476666bdc4c79c44b89340c';
 
-abstract class _$CalendarSheet extends $AsyncNotifier<CalendarSheetModel> {
-  FutureOr<CalendarSheetModel> build();
+abstract class _$CalendarSheet extends $Notifier<CalendarSheetModel> {
+  CalendarSheetModel build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final ref =
-        this.ref as $Ref<AsyncValue<CalendarSheetModel>, CalendarSheetModel>;
+    final ref = this.ref as $Ref<CalendarSheetModel, CalendarSheetModel>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<CalendarSheetModel>, CalendarSheetModel>,
-              AsyncValue<CalendarSheetModel>,
+              AnyNotifier<CalendarSheetModel, CalendarSheetModel>,
+              CalendarSheetModel,
               Object?,
               Object?
             >;

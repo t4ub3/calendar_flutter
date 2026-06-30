@@ -12,6 +12,22 @@ part 'calendar_sheet_provider.g.dart';
 class CalendarSheet extends _$CalendarSheet {
   @override
   CalendarSheetModel build() {
-    return ref.watch(calendarSheetProvider).value!;
+    final sheet = CalendarSheetModel(
+      showMonth: DateTime.now(),
+      selectedDate: DateTime.now(),
+    );
+    return sheet;
+  }
+
+  void setSheetState(CalendarSheetModel sheet) {
+    state = sheet;
+  }
+
+  void updateMonth(int change) {
+    final newMonth = DateTime(
+      state.showMonth.year,
+      state.showMonth.month + change,
+    );
+    state = state.copyWith(showMonth: newMonth);
   }
 }
